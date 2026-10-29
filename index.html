@@ -3,6 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आख्यान | <!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आख्यान | साहित्य, विचार और कलाओं की वेब पत्रिका</title>
+    
+    <!-- आधुनिक और संतुलित साहित्यिक फॉन्ट्स -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Federo&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #fdfdfb;
+            --text-color: #1a1a1a;
+            --brand-color: #7b1fa2; /* अधिक गहरा और संजीदा मखमली बैंगनी */
+            --title-color: #8b0000; 
+            --nav-bg: #ffffff;
+            --nav-text: #333333;
+            --meta-bg: #f7f6f2;
+            --border-color: #222222;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --brand-color: #ce93d8;
+            --title-color: #ff8a80;
+            --nav-bg: #1e1e1e;
+            --nav-text: #ffffff;
+            --meta-bg: #1a1a1a;
+            --border-color: #444444;
+        }
+
+        body {
+            font-family: 'Noto Serif Devanagari', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0; padding: 0;
+            line-height: 1.9; /* बेहतर पठनीयता के लिए संतुलित गैप */
+            transition: background-color 0.3s, color 0.3s;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 940px; margin: 0 auto; padding: 0 20px; }
+
+        header { text-align: center; padding: 50px 0 20px 0; }
+        header h1 {
+            font-size: 58px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: var(--brand-color);
+            letter-spacing: -0.5px;
+        }
+
+        header .tagline {
+            font-size: 15px;
+            color: var(--title-color);
+            font-weight: 500;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .header-sep {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 13px;
+        }
+
+        .header-sep a { color: var(--text-color); text-decoration: none; }
+
+        nav {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 940px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px; height: 55px;
+        }
+
+        .menu-links { display: flex; gap: 24px; }
+        .menu-links a {
+            color: var(--nav-text);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .menu-links a:hover { color: var(--title-color); }
+
+        .theme-toggle-btn {
+            background: none; border: none; color: var(--nav-text);
+            cursor: pointer; font-size: 18px;
+        }
+
+        main { max-width: 740px; margin: 0 auto; padding-bottom: 60px; }
+        .article-title {
+            font-size: 34px; font-weight: 700; line-height: 1.4;
+            color: var(--title-color); margin-bottom: 20px;
+        }
+
+        .author-meta {
+            font-size: 14px; margin-bottom: 30px;
+            border-left: 4px solid var(--brand-color); padding-left: 15px;
+            background-color: var(--meta-bg); padding: 12px;
+        }
+
+        .audio-container {
+            margin-bottom: 35px; padding: 12px;
+            border: 1px solid var(--border-color); border-radius: 4px;
+            display: flex; align-items: center; gap: 15px;
+        }
+
+        audio { flex-grow: 1; height: 32px; }
+
+        .article-content p {
+            font-size: 19px; margin-bottom: 25px; text-align: justify;
+            letter-spacing: 0.1px;
+        }
+
+        /* एडसेंस विज्ञापन के लिए सुरक्षित स्थान (Placeholder) */
+        .ads-space {
+            margin: 40px 0; padding: 15px;
+            text-align: center; background-color: var(--meta-bg);
+            border: 1px dashed var(--border-color);
+            font-size: 12px; color: var(--text-color); opacity: 0.6;
+        }
+
+        .article-footer {
+            margin-top: 50px; padding-top: 20px;
+            border-top: 1px dashed var(--border-color); font-size: 15px;
+            display: flex; gap: 25px;
+        }
+
+        .article-footer a { color: var(--brand-color); text-decoration: none; font-weight: 500; }
+
+        footer { border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; font-size: 14px; }
+        .footer-line { display: flex; justify-content: center; gap: 15px; }
+        footer a { color: var(--text-color); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 42px; }
+            .menu-links { gap: 12px; }
+            .menu-links a { font-size: 14px; }
+            .article-title { font-size: 26px; }
+            .article-content p { font-size: 17px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <h1>आख्यान</h1>
+        <div class="tagline">साहित्य, विचार और कलाओं की वेब पत्रिका</div>
+        <div class="header-sep">
+            <span>फॉलो करें: <a href="#">Facebook</a> • <a href="#">Twitter</a></span>
+            <span>|</span>
+            <span>स्थान: प्रयागराज, उत्तर प्रदेश</span>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="menu-links">
+                <a href="#">मुखपृष्ठ</a>
+                <a href="#">कविता</a>
+                <a href="#">कहानियाँ</a>
+                <a href="#">वैचारिकी</a>
+                <a href="#">यादें</a>
+                <a href="#">संपर्क</a>
+            </div>
+            <button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main>
+            <article class="article">
+                <h2 class="article-title">डॉ. शिवशंकर मिश्र : जीवन-परिचय एवं साहित्यिक व्यक्तित्व</h2>
+                
+                <div class="author-meta">
+                    <strong>प्रस्तुति:</strong> आख्यान संपादन मंडल<br>
+                    <strong>संस्थापक संपादक:</strong> डॉ. शिवशंकर मिश्र (२०१०)
+                </div>
+
+                <div class="audio-container">
+                    <span>🎧 पाठ सुनें:</span>
+                    <audio controls><source src="#" type="audio/mpeg"></audio>
+                </div>
+
+                <div class="article-content">
+                    <p>यह 'आख्यान' का नया, संतुलित और आधुनिक स्वरूप है। देवनागरी अक्षरों की बनावट और उनके बीच के स्पेस को इस तरह व्यवस्थित किया गया है कि गंभीर विमर्श को पढ़ते समय आँखों को पूर्ण सहजता का अनुभव हो।</p>
+                    
+                    <!-- एडसेंस विज्ञापन बॉक्स (भविष्य के लिए तैयार) -->
+                    <div class="ads-space">Google AdSense विज्ञापन का स्थान</div>
+
+                    <p>बिना किसी कृत्रिम बनावट के, यह लेआउट पूरी तरह से एडसेंस-फ्रेंडली है और प्रकाशकों के उच्चतम मानकों को पूरा करता है।</p>
+                </div>
+
+                <div class="article-footer">
+                    <a href="#">💬 टिप्पणी करें</a>
+                    <a href="#">🔗 साझा करें</a>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-line">
+            <span>© 2026 आख्यान. सर्वाधिकार सुरक्षित.</span>
+            <span>•</span>
+            <a href="#">गोपनीयता नीति</a>
+            <span>•</span>
+            <a href="#">संपर्क करें</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.innerText = '🌙';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerText = '☀️';
+            }
+        }
+    </script>
+</body>
+</html>
+ा</title>
+    
+    <!-- आधुनिक और संतुलित साहित्यिक फॉन्ट्स -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Federo&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #fdfdfb;
+            --text-color: #1a1a1a;
+            --brand-color: #7b1fa2; /* अधिक गहरा और संजीदा मखमली बैंगनी */
+            --title-color: #8b0000; 
+            --nav-bg: #ffffff;
+            --nav-text: #333333;
+            --meta-bg: #f7f6f2;
+            --border-color: #222222;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --brand-color: #ce93d8;
+            --title-color: #ff8a80;
+            --nav-bg: #1e1e1e;
+            --nav-text: #ffffff;
+            --meta-bg: #1a1a1a;
+            --border-color: #444444;
+        }
+
+        body {
+            font-family: 'Noto Serif Devanagari', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0; padding: 0;
+            line-height: 1.9; /* बेहतर पठनीयता के लिए संतुलित गैप */
+            transition: background-color 0.3s, color 0.3s;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 940px; margin: 0 auto; padding: 0 20px; }
+
+        header { text-align: center; padding: 50px 0 20px 0; }
+        header h1 {
+            font-size: 58px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: var(--brand-color);
+            letter-spacing: -0.5px;
+        }
+
+        header .tagline {
+            font-size: 15px;
+            color: var(--title-color);
+            font-weight: 500;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .header-sep {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 13px;
+        }
+
+        .header-sep a { color: var(--text-color); text-decoration: none; }
+
+        nav {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 940px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px; height: 55px;
+        }
+
+        .menu-links { display: flex; gap: 24px; }
+        .menu-links a {
+            color: var(--nav-text);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .menu-links a:hover { color: var(--title-color); }
+
+        .theme-toggle-btn {
+            background: none; border: none; color: var(--nav-text);
+            cursor: pointer; font-size: 18px;
+        }
+
+        main { max-width: 740px; margin: 0 auto; padding-bottom: 60px; }
+        .article-title {
+            font-size: 34px; font-weight: 700; line-height: 1.4;
+            color: var(--title-color); margin-bottom: 20px;
+        }
+
+        .author-meta {
+            font-size: 14px; margin-bottom: 30px;
+            border-left: 4px solid var(--brand-color); padding-left: 15px;
+            background-color: var(--meta-bg); padding: 12px;
+        }
+
+        .audio-container {
+            margin-bottom: 35px; padding: 12px;
+            border: 1px solid var(--border-color); border-radius: 4px;
+            display: flex; align-items: center; gap: 15px;
+        }
+
+        audio { flex-grow: 1; height: 32px; }
+
+        .article-content p {
+            font-size: 19px; margin-bottom: 25px; text-align: justify;
+            letter-spacing: 0.1px;
+        }
+
+        /* एडसेंस विज्ञापन के लिए सुरक्षित स्थान (Placeholder) */
+        .ads-space {
+            margin: 40px 0; padding: 15px;
+            text-align: center; background-color: var(--meta-bg);
+            border: 1px dashed var(--border-color);
+            font-size: 12px; color: var(--text-color); opacity: 0.6;
+        }
+
+        .article-footer {
+            margin-top: 50px; padding-top: 20px;
+            border-top: 1px dashed var(--border-color); font-size: 15px;
+            display: flex; gap: 25px;
+        }
+
+        .article-footer a { color: var(--brand-color); text-decoration: none; font-weight: 500; }
+
+        footer { border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; font-size: 14px; }
+        .footer-line { display: flex; justify-content: center; gap: 15px; }
+        footer a { color: var(--text-color); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 42px; }
+            .menu-links { gap: 12px; }
+            .menu-links a { font-size: 14px; }
+            .article-title { font-size: 26px; }
+            .article-content p { font-size: 17px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <h1>आख्यान</h1>
+        <div class="tagline">साहित्य, विचार और कलाओं की वेब पत्रिका</div>
+        <div class="header-sep">
+            <span>फॉलो करें: <a href="#">Facebook</a> • <a href="#">Twitter</a></span>
+            <span>|</span>
+            <span>स्थान: प्रयागराज, उत्तर प्रदेश</span>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="menu-links">
+                <a href="#">मुखपृष्ठ</a>
+                <a href="#">कविता</a>
+                <a href="#">कहानियाँ</a>
+                <a href="#">वैचारिकी</a>
+                <a href="#">यादें</a>
+                <a href="#">संपर्क</a>
+            </div>
+            <button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main>
+            <article class="article">
+                <h2 class="article-title">डॉ. शिवशंकर मिश्र : जीवन-परिचय एवं साहित्यिक व्यक्तित्व</h2>
+                
+                <div class="author-meta">
+                    <strong>प्रस्तुति:</strong> आख्यान संपादन मंडल<br>
+                    <strong>संस्थापक संपादक:</strong> डॉ. शिवशंकर मिश्र (२०१०)
+                </div>
+
+                <div class="audio-container">
+                    <span>🎧 पाठ सुनें:</span>
+                    <audio controls><source src="#" type="audio/mpeg"></audio>
+                </div>
+
+                <div class="article-content">
+                    <p>यह 'आख्यान' का नया, संतुलित और आधुनिक स्वरूप है। देवनागरी अक्षरों की बनावट और उनके बीच के स्पेस को इस तरह व्यवस्थित किया गया है कि गंभीर विमर्श को पढ़ते समय आँखों को पूर्ण सहजता का अनुभव हो।</p>
+                    
+                    <!-- एडसेंस विज्ञापन बॉक्स (भविष्य के लिए तैयार) -->
+                    <div class="ads-space">Google AdSense विज्ञापन का स्थान</div>
+
+                    <p>बिना किसी कृत्रिम बनावट के, यह लेआउट पूरी तरह से एडसेंस-फ्रेंडली है और प्रकाशकों के उच्चतम मानकों को पूरा करता है।</p>
+                </div>
+
+                <div class="article-footer">
+                    <a href="#">💬 टिप्पणी करें</a>
+                    <a href="#">🔗 साझा करें</a>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-line">
+            <span>© 2026 आख्यान. सर्वाधिकार सुरक्षित.</span>
+            <span>•</span>
+            <a href="#">गोपनीयता नीति</a>
+            <span>•</span>
+            <a href="#">संपर्क करें</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.innerText = '🌙';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerText = '☀️';
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>आख्यान | साहित्य, कला और विमर्श की वेब पत्रिका</title>
     
     <!-- गूगल फॉन्ट: नोट Serif देवनागरी (साहित्यिक पत्रिकाओं के लिए मानक) -->
