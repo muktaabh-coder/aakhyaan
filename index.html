@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>आख्यान | साहित्य, कला और विमर्श की संजीदा जगह</title>
+    <title>आख्यान | साहित्य, कला और विमर्श की वेब पत्रिका</title>
     
-    <!-- गूगल फॉन्ट: नोट Serif देवनागरी (गंभीर साहित्यिक पठन के लिए सर्वश्रेष्ठ) -->
+    <!-- गूगल फॉन्ट: नोट Serif देवनागरी (साहित्यिक पत्रिकाओं के लिए मानक) -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* लाइट और डार्क मोड के रंग */
+        /* लाइट और डार्क मोड के वैश्विक चर (Variables) */
         :root {
-            --bg-color: #fcfbf9;
-            --text-color: #1a1a1a;
-            --header-color: #000000;
-            --nav-color: #4b0082;
-            --title-color: #8b0000;
-            --meta-bg: #f5f3ef;
-            --border-color: #e8e6e1;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --header-color: #ffffff;
-            --nav-color: #b39ddb;
-            --title-color: #ff8a80;
-            --meta-bg: #1e1e1e;
+            --bg-color: #fdfdfb;          /* सदानीरा जैसा मखमली कागजी बैकग्राउंड */
+            --text-color: #1a1a1a;        /* गहरा पठनीय स्याह रंग */
+            --brand-color: #9c27b0;       /* सदानीरा जैसा बैंगनी रंग */
+            --title-color: #8b0000;       /* गंभीर गहरा लाल रंग */
+            --nav-bg: #ffffff;            /* लाइट मोड मेनू बैकग्राउंड */
+            --nav-text: #222222;
+            --meta-bg: #f7f6f2;
             --border-color: #333333;
         }
 
-        /* बुनियादी बनावट */
+        [data-theme="dark"] {
+            --bg-color: #121212;          /* समालोचन जैसा आधुनिक डार्क मोड */
+            --text-color: #e0e0e0;
+            --brand-color: #ba68c8;
+            --title-color: #ff8a80;
+            --nav-bg: #1e1e1e;            /* गहरा मेनू बैकग्राउंड */
+            --nav-text: #ffffff;
+            --meta-bg: #1a1a1a;
+            --border-color: #444444;
+        }
+
         body {
             font-family: 'Noto Serif Devanagari', serif;
             background-color: var(--bg-color);
@@ -45,71 +46,133 @@
         }
 
         .container {
-            max-width: 760px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
-            position: relative;
         }
 
-        /* डार्क मोड बटन - शांत कोना */
-        .theme-toggle-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 5px 10px;
-            cursor: pointer;
-            font-family: sans-serif;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-
-        /* हेडर - आख्यान शीर्षक */
+        /* 1. हेडर सेक्शन (सदानीरा शैली में केंद्रीय और कलात्मक) */
         header {
             text-align: center;
-            padding: 60px 0 30px 0;
+            padding: 50px 0 20px 0;
         }
 
         header h1 {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 700;
-            margin: 0 0 10px 0;
-            color: var(--header-color);
+            margin: 0 0 5px 0;
+            color: var(--brand-color);    /* विशिष्ट साहित्यिक बैंगनी-लाल रंग */
+            letter-spacing: -0.5px;
         }
 
         header .tagline {
-            font-size: 16px;
+            font-size: 15px;
+            color: var(--title-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* बारीक समानांतर रेखाएं (सदानीरा की तरह) */
+        .header-sep {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 13px;
             color: var(--text-color);
             opacity: 0.8;
-            font-style: italic;
         }
 
-        /* मार्गनिर्देशन कतार (Menu) */
+        .header-sep span a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        /* 2. नेविगेशन पट्टी (समालोचन और सदानीरा का मिलाजुला रूप) */
         nav {
-            text-align: center;
-            padding: 15px 0;
-            margin-bottom: 30px;
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
-        nav a {
-            color: var(--nav-color);
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 50px;
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu-links a {
+            color: var(--nav-text);
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            margin: 0 12px;
+            transition: color 0.2s;
         }
 
-        nav a:hover {
+        .menu-links a:hover {
             color: var(--title-color);
+        }
+
+        /* डार्क मोड बटन (समालोचन की तरह आधुनिक गोल बटन) */
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--nav-text);
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+
+        /* 3. मुख्य विमर्श क्षेत्र (वन-साइड साफ़ लेआउट) */
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .article-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--title-color);
+            margin-bottom: 20px;
+        }
+
+        /* लेखक परिचय पट्टी */
+        .author-meta {
+            font-size: 14px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--brand-color);
+            padding-left: 15px;
+            background-color: var(--meta-bg);
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         /* ऑडियो प्लेयर */
         .audio-container {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             padding: 12px;
-            background-color: var(--meta-bg);
+            border: 1px solid var(--border-color);
             border-radius: 4px;
             display: flex;
             align-items: center;
@@ -123,59 +186,36 @@
 
         audio {
             flex-grow: 1;
-            height: 32px;
-        }
-
-        /* मुख्य लेख क्षेत्र */
-        main {
-            padding-bottom: 60px;
-        }
-
-        .article {
-            margin-bottom: 50px;
-        }
-
-        .article-title {
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 0;
-            margin-bottom: 15px;
-            color: var(--title-color);
-        }
-
-        /* लेखक परिचय खंड */
-        .author-meta {
-            font-size: 15px;
-            margin-bottom: 30px;
-            border-left: 3px solid var(--title-color);
-            padding-left: 15px;
-            background-color: var(--meta-bg);
-            padding-top: 10px;
-            padding-bottom: 10px;
+            height: 30px;
         }
 
         .article-content p {
-            font-size: 18px;
+            font-size: 19px;
             margin-bottom: 25px;
             text-align: justify;
         }
 
-        /* कमेंट और शेयर पट्टी */
+        /* कमेंट और शेयर विकल्प */
         .article-footer {
-            margin-top: 40px;
+            margin-top: 50px;
             padding-top: 20px;
             border-top: 1px dashed var(--border-color);
             font-size: 15px;
+            display: flex;
+            gap: 25px;
         }
 
         .article-footer a {
-            color: var(--nav-color);
+            color: var(--brand-color);
             text-decoration: none;
-            margin-right: 20px;
+            font-weight: 500;
         }
 
-        /* पादलेख (Footer) */
+        .article-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 4. पादलेख (Footer) */
         footer {
             border-top: 1px solid var(--border-color);
             padding: 40px 0;
@@ -185,28 +225,24 @@
 
         .footer-line {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            align-items: center;
+            color: var(--text-color);
+            opacity: 0.7;
         }
 
         footer a {
             color: var(--text-color);
-            opacity: 0.8;
             text-decoration: none;
         }
 
-        .separator {
-            color: var(--border-color);
-        }
-
-        /* मोबाइल सेटिंग्स */
+        /* मोबाइल के लिए अनुकूलन */
         @media (max-width: 600px) {
-            header h1 { font-size: 36px; }
-            nav a { margin: 0 6px; font-size: 14px; }
-            .article-title { font-size: 22px; }
-            .article-content p { font-size: 16px; }
+            header h1 { font-size: 40px; }
+            .menu-links { gap: 10px; }
+            .menu-links a { font-size: 14px; }
+            .article-title { font-size: 24px; }
+            .article-content p { font-size: 17px; }
             .audio-container { flex-direction: column; align-items: flex-start; }
             audio { width: 100%; }
         }
@@ -214,81 +250,66 @@
 </head>
 <body>
 
-<div class="container">
-
-    <button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn">Dark Mode</button>
-
-    <header>
+    <!-- 1. कलात्मक मुख्य शीर्ष (Header) -->
+    <header class="container">
         <h1>आख्यान</h1>
-        <div class="tagline">साहित्य, कला & विमर्श की संजीदा जगह</div>
+        <div class="tagline">साहित्य, विचार और कलाओं की वेब पत्रिका</div>
+        
+        <!-- समानांतर रेखाओं के बीच सोशल मीडिया लिंक्स -->
+        <div class="header-sep">
+            <span>फॉलो करें: <a href="#">f</a> • <a href="#">t</a> • <a href="#">i</a></span>
+            <span>|</span>
+            <span>स्थान: प्रयागराज, उत्तर प्रदेश</span>
+        </div>
     </header>
 
+    <!-- 2. आधुनिक मार्गनिर्देशन पट्टी (Navigation Menu & Dark Mode) -->
     <nav>
-        <a href="#">कविता</a>
-        <a href="#">आलोचना</a>
-        <a href="#">कहानियाँ</a>
-        <a href="#">यादें</a>
-        <a href="#">प्रवर्तक</a>
-        <a href="#">संपर्क</a>
+        <div class="nav-container">
+            <div class="menu-links">
+                <a href="#">मुखपृष्ठ</a>
+                <a href="#">कविता</a>
+                <a href="#">कहानियाँ</a>
+                <a href="#">वैचारिकी</a>
+                <a href="#">यादें</a>
+                <a href="#">संपर्क</a>
+            </div>
+            <!-- समालोचन जैसा मून आइकॉन बटन डार्क मोड के लिए -->
+            <button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn" title="रात का मोड">🌙</button>
+        </div>
     </nav>
 
-    <main>
-        <article class="article">
-            <h2 class="article-title">डॉ. शिवशंकर मिश्र : जीवन-परिचय एवं साहित्यिक व्यक्तित्व</h2>
-            
-            <div class="author-meta">
-                <strong>लेखक परिचय:</strong> डॉ. शिव शंकर मिश्रा (एसोसिएट प्रोफेसर)<br>
-                <strong>साहित्यिक केंद्र:</strong> प्रयागराज, उत्तर प्रदेश
-            </div>
+    <!-- 3. विमर्श क्षेत्र (Content Body) -->
+    <div class="container">
+        <main>
+            <article class="article">
+                <h2 class="article-title">डॉ. शिवशंकर मिश्र : जीवन-परिचय एवं साहित्यिक व्यक्तित्व</h2>
+                
+                <div class="author-meta">
+                    <strong>प्रस्तुति:</strong> आख्यान संपादन मंडल<br>
+                    <strong>संस्थापक संपादक:</strong> डॉ. शिवशंकर मिश्र (२०१०)
+                </div>
 
-            <!-- ऑडियो प्लेयर -->
-            <div class="audio-container">
-                <span class="audio-label">🎧 लेख सुनें (Audio Reader):</span>
-                <audio controls="controls">
-                    <source src="#" type="audio/mpeg" />
-                    आपका ब्राउज़र ऑडियो का समर्थन नहीं करता।
-                </audio>
-            </div>
+                <!-- ऑडियो प्लेयर व्यवस्था -->
+                <div class="audio-container">
+                    <span class="audio-label">🎧 पाठ सुनें:</span>
+                    <audio controls="controls">
+                        <source src="#" type="audio/mpeg" />
+                        आपका ब्राउज़र ऑडियो का समर्थन नहीं करता।
+                    </audio>
+                </div>
 
-            <div class="article-content">
-                <p>यह 'आख्यान' का पहला प्रामाणिक, शालीन... और जीवंत मुख्य पृष्ठ है। किसी भी साहित्यिक वेब पत्रिका की असली गरिमा उसकी सादगी, शुद्धता... और विचारों की स्पष्टता में निहित होती है। यहाँ पाठक का ध्यान भटकाने के लिए कोई फालतू बॉक्स, चमकदार विज्ञापन या कृत्रिम एआई लुक नहीं है।</p>
-                <p>इस वन-साइड क्लीन लेआउट को इस तरह व्यवस्थित किया गया है कि कंप्यूटर की बड़ी स्क्रीन से लेकर मोबाइल की छोटी स्क्रीन तक, हर जगह हिंदी के अक्षर बिल्कुल मोतियों जैसे साफ़ और पठनीय दिखाई दें। यह गंभीर पाठकों को सीधे शब्दों और संवेदनाओं से जोड़ता है।</p>
-            </div>
+                <div class="article-content">
+                    <p>यह 'आख्यान' का नया और अत्यंत आकर्षक स्वरूप है, जो हिंदी जगत की दो सबसे प्रतिष्ठित पत्रिकाओं—'सदानीरा' और 'समालोचन'—के डिज़ाइन सौंदर्य से प्रेरित है। कलात्मक बैंगनी और गंभीर लाल रंगों का यह मेल पत्रिका की वैचारिक गहराई को रेखांकित करता है।</p>
+                    <p>इस लेआउट की रचना इस तरह की गई है कि पाठक का ध्यान केवल और केवल गंभीर गद्य और कविताओं पर केंद्रित रहे। किसी भी प्रकार के अनावश्यक विज्ञापनों और एआई-मार्किंग से मुक्त, यह मंच पूरी तरह से शुद्ध साहित्यिक विमर्श के लिए समर्पित है।</p>
+                </div>
 
-            <div class="article-footer">
-                <a href="#">💬 टिप्पणी करें (Comments)</a>
-                <a href="#">🔗 साझा करें (Share)</a>
-            </div>
-        </article>
-    </main>
+                <div class="article-footer">
+                    <a href="#">💬 टिप्पणी करें</a>
+                    <a href="#">🔗 साझा करें</a>
+                </div>
+            </article>
+        </main>
+    </div>
 
-    <footer>
-        <div class="footer-line">
-            <span>© 2026 आख्यान. सर्वाधिकार सुरक्षित.</span>
-            <span class="separator">|</span>
-            <a href="#">आमुख</a>
-            <span class="separator">•</span>
-            <a href="#">गोपनीयता नीति</a>
-            <span class="separator">•</span>
-            <a href="#">संपर्क करें</a>
-        </div>
-    </footer>
-
-</div>
-
-<script>
-    function toggleTheme() {
-        const body = document.body;
-        const btn = document.getElementById('themeBtn');
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            btn.innerText = 'Dark Mode';
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            btn.innerText = 'Light Mode';
-        }
-    }
-</script>
-
-</body>
-</html>
+    <!-- 4. पादलेख (Footer) -->
