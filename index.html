@@ -1,146 +1,294 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आख्यान | साहित्य, कला और विमर्श की संजीदा जगह</title>
+    
+    <!-- गूगल फॉन्ट: नोट Serif देवनागरी (गंभीर साहित्यिक पठन के लिए सर्वश्रेष्ठ) -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
 
-<title>आख्यान</title>
+    <style>
+        /* लाइट और डार्क मोड के रंग */
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #1a1a1a;
+            --header-color: #000000;
+            --nav-color: #4b0082;
+            --title-color: #8b0000;
+            --meta-bg: #f5f3ef;
+            --border-color: #e8e6e1;
+        }
 
-<style>
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-color: #ffffff;
+            --nav-color: #b39ddb;
+            --title-color: #ff8a80;
+            --meta-bg: #1e1e1e;
+            --border-color: #333333;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        /* बुनियादी बनावट */
+        body {
+            font-family: 'Noto Serif Devanagari', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            transition: background-color 0.3s, color 0.3s;
+            -webkit-font-smoothing: antialiased;
+        }
 
-body{
-    font-family:Nirmala UI,sans-serif;
-    background:#f8f5ef;
-    color:#222;
-}
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
 
-/* Header */
+        /* डार्क मोड बटन - शांत कोना */
+        .theme-toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-size: 12px;
+            border-radius: 4px;
+        }
 
-header{
-    background:#5b2c06;
-    color:#fff;
-    text-align:center;
-    padding:18px 20px;
-}
+        /* हेडर - आख्यान शीर्षक */
+        header {
+            text-align: center;
+            padding: 60px 0 30px 0;
+        }
 
-header h1{
-    font-size:56px;
-    font-weight:700;
-    line-height:1.1;
-}
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            color: var(--header-color);
+        }
 
-header p{
-    margin-top:8px;
-    font-size:18px;
-    opacity:.95;
-}
+        header .tagline {
+            font-size: 16px;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-style: italic;
+        }
 
-/* Navigation */
+        /* मार्गनिर्देशन कतार (Menu) */
+        nav {
+            text-align: center;
+            padding: 15px 0;
+            margin-bottom: 30px;
+        }
 
-nav{
-    background:#8b4513;
-    text-align:center;
-    padding:12px 0;
-}
+        nav a {
+            color: var(--nav-color);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 12px;
+        }
 
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin:0 18px;
-    font-size:18px;
-    transition:.3s;
-}
+        nav a:hover {
+            color: var(--title-color);
+        }
 
-nav a:hover{
-    color:#ffd9a0;
-}
+        /* ऑडियो प्लेयर */
+        .audio-container {
+            margin-bottom: 30px;
+            padding: 12px;
+            background-color: var(--meta-bg);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-/* Hero */
+        .audio-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
 
-.hero{
-    padding:70px 20px;
-    text-align:center;
-}
+        audio {
+            flex-grow: 1;
+            height: 32px;
+        }
 
-.hero h2{
-    font-size:48px;
-    color:#5b2c06;
-    margin-bottom:25px;
-}
+        /* मुख्य लेख क्षेत्र */
+        main {
+            padding-bottom: 60px;
+        }
 
-.hero p{
-    max-width:900px;
-    margin:auto;
-    font-size:24px;
-    line-height:1.8;
-}
+        .article {
+            margin-bottom: 50px;
+        }
 
-.btn{
-    display:inline-block;
-    margin-top:35px;
-    padding:15px 35px;
-    background:#5b2c06;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-size:18px;
-    transition:.3s;
-}
+        .article-title {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--title-color);
+        }
 
-.btn:hover{
-    background:#7a3d0c;
-}
+        /* लेखक परिचय खंड */
+        .author-meta {
+            font-size: 15px;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--title-color);
+            padding-left: 15px;
+            background-color: var(--meta-bg);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
 
-/* Footer */
+        .article-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
 
-footer{
-    margin-top:80px;
-    background:#222;
-    color:#fff;
-    text-align:center;
-    padding:25px;
-    font-size:16px;
-}
+        /* कमेंट और शेयर पट्टी */
+        .article-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 15px;
+        }
 
-</style>
+        .article-footer a {
+            color: var(--nav-color);
+            text-decoration: none;
+            margin-right: 20px;
+        }
 
+        /* पादलेख (Footer) */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-line {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+
+        footer a {
+            color: var(--text-color);
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        .separator {
+            color: var(--border-color);
+        }
+
+        /* मोबाइल सेटिंग्स */
+        @media (max-width: 600px) {
+            header h1 { font-size: 36px; }
+            nav a { margin: 0 6px; font-size: 14px; }
+            .article-title { font-size: 22px; }
+            .article-content p { font-size: 16px; }
+            .audio-container { flex-direction: column; align-items: flex-start; }
+            audio { width: 100%; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
+<div class="container">
 
-<h1>आख्यान</h1>
+    <button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn">Dark Mode</button>
 
-<p>कुछ शब्दचित्र हैं यहाँ। विकास की अन्धी दौड़ में ये हाशिये की आख्याएँ हैं और आख्यान भी!</p>
+    <header>
+        <h1>आख्यान</h1>
+        <div class="tagline">साहित्य, कला & विमर्श की संजीदा जगह</div>
+    </header>
 
-</header>
+    <nav>
+        <a href="#">कविता</a>
+        <a href="#">आलोचना</a>
+        <a href="#">कहानियाँ</a>
+        <a href="#">यादें</a>
+        <a href="#">प्रवर्तक</a>
+        <a href="#">संपर्क</a>
+    </nav>
 
-<nav>
+    <main>
+        <article class="article">
+            <h2 class="article-title">डॉ. शिवशंकर मिश्र : जीवन-परिचय एवं साहित्यिक व्यक्तित्व</h2>
+            
+            <div class="author-meta">
+                <strong>लेखक परिचय:</strong> डॉ. शिव शंकर मिश्रा (एसोसिएट प्रोफेसर)<br>
+                <strong>साहित्यिक केंद्र:</strong> प्रयागराज, उत्तर प्रदेश
+            </div>
 
-<a href="#">मुखपृष्ठ</a>
+            <!-- ऑडियो प्लेयर -->
+            <div class="audio-container">
+                <span class="audio-label">🎧 लेख सुनें (Audio Reader):</span>
+                <audio controls="controls">
+                    <source src="#" type="audio/mpeg" />
+                    आपका ब्राउज़र ऑडियो का समर्थन नहीं करता।
+                </audio>
+            </div>
 
-<a href="#">कहानियाँ</a>
+            <div class="article-content">
+                <p>यह 'आख्यान' का पहला प्रामाणिक, शालीन... और जीवंत मुख्य पृष्ठ है। किसी भी साहित्यिक वेब पत्रिका की असली गरिमा उसकी सादगी, शुद्धता... और विचारों की स्पष्टता में निहित होती है। यहाँ पाठक का ध्यान भटकाने के लिए कोई फालतू बॉक्स, चमकदार विज्ञापन या कृत्रिम एआई लुक नहीं है।</p>
+                <p>इस वन-साइड क्लीन लेआउट को इस तरह व्यवस्थित किया गया है कि कंप्यूटर की बड़ी स्क्रीन से लेकर मोबाइल की छोटी स्क्रीन तक, हर जगह हिंदी के अक्षर बिल्कुल मोतियों जैसे साफ़ और पठनीय दिखाई दें। यह गंभीर पाठकों को सीधे शब्दों और संवेदनाओं से जोड़ता है।</p>
+            </div>
 
-<a href="#">कविताएँ</a>
+            <div class="article-footer">
+                <a href="#">💬 टिप्पणी करें (Comments)</a>
+                <a href="#">🔗 साझा करें (Share)</a>
+            </div>
+        </article>
+    </main>
 
-<a href="#">समालोचना</a>
+    <footer>
+        <div class="footer-line">
+            <span>© 2026 आख्यान. सर्वाधिकार सुरक्षित.</span>
+            <span class="separator">|</span>
+            <a href="#">आमुख</a>
+            <span class="separator">•</span>
+            <a href="#">गोपनीयता नीति</a>
+            <span class="separator">•</span>
+            <a href="#">संपर्क करें</a>
+        </div>
+    </footer>
 
-<a href="#">शोध</a>
+</div>
 
-<a href="#">संपर्क</a>
-    Screenshot_20260725-230041~2.jpg
-<footer>
-
-© 2026 आख्यान
-
-</footer>
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('themeBtn');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            btn.innerText = 'Dark Mode';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            btn.innerText = 'Light Mode';
+        }
+    }
+</script>
 
 </body>
 </html>
