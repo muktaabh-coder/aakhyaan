@@ -19,6 +19,7 @@
             --nav-bg: #ffffff;
             --meta-bg: #f7f6f2;
             --border-color: #333333;
+            --icon-filter: invert(0);    /* लाइट मोड में आइकॉन्स काले रहेंगे */
         }
 
         [data-theme="dark"] {
@@ -29,6 +30,7 @@
             --nav-bg: #1e1e1e;
             --meta-bg: #1a1a1a;
             --border-color: #444444;
+            --icon-filter: invert(1);     /* डार्क मोड में आइकॉन्स अपने आप सफ़ेद हो जाएंगे */
         }
 
         body {
@@ -55,15 +57,27 @@
             margin: 0 0 15px 0; font-style: italic; line-height: 1.5;
         }
 
-        /* बारीक समानांतर रेखाएं और सोशल लिंक */
+        /* बारीक समानांतर रेखाएं और सोशल आइकॉन्स (Logos) */
         .header-sep {
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            padding: 6px 0;
-            display: flex; justify-content: center; gap: 25px;
-            font-size: 13px; margin-bottom: 10px;
+            padding: 8px 0;
+            display: flex; justify-content: center; align-items: center; gap: 20px;
+            font-size: 14px; margin-bottom: 10px;
         }
-        .header-sep a { color: var(--text-color); text-decoration: none; font-weight: 500; }
+        
+        /* सोशल मीडिया लोगो स्टाइल */
+        .social-logo {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            filter: var(--icon-filter);
+            transition: opacity 0.2s;
+        }
+        .social-logo:hover { opacity: 0.7; }
+        
+        .header-sep span { font-weight: 500; }
 
         /* मार्गनिर्देशन पट्टी (Navigation Menu) - ७ शुद्ध कड़ियाँ */
         nav { background-color: var(--nav-bg); border-bottom: 1px solid var(--border-color); margin-bottom: 30px; }
@@ -128,14 +142,26 @@
         <h1>आख्यान</h1>
         <div class="tagline">कुछ शब्दचित्र हैं यहाँ। विकास की अन्धी दौड़ में ये हाशिये की आख्यायें हैं और आख्यान भी!</div>
         
+        <!-- केवल लोगो (Logos) और स्थान पट्टी -->
         <div class="header-sep">
-            <span>जुड़ें: <a href="#">Facebook</a> • <a href="#">Twitter</a></span>
+            <a href="#" target="_blank" title="Facebook">
+                <!-- फेसबुक का आधिकारिक साफ SVG लोगो -->
+                <svg class="social-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://w3.org">
+                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/>
+                </svg>
+            </a>
+            <a href="#" target="_blank" title="X (Twitter)">
+                <!-- एक्स / ट्विटर का आधिकारिक साफ SVG लोगो -->
+                <svg class="social-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://w3.org">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
             <span>|</span>
-            <span>केंद्र: प्रयागराज, उत्तर प्रदेश</span>
+            <span>प्रयागराज</span>
         </div>
     </header>
 
-    <!-- 2. मार्गनिर्देशन पट्टी (७ शुद्ध कड़ियाँ - पुनर्मूल्यन के साथ) -->
+    <!-- 2. मार्गनिर्देशन पट्टी (७ शुद्ध कड़ियाँ) -->
     <nav>
         <div class="nav-container">
             <div class="menu-links">
