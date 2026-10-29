@@ -18,8 +18,8 @@
             --title-color: #8b0000;       /* आपका पसंदीदा गहरा लाल */
             --nav-bg: #ffffff;
             --meta-bg: #f7f6f2;
-            --border-color: #333333;
-            --icon-filter: invert(0);    /* लाइट मोड में आइकॉन्स काले रहेंगे */
+            --border-color: #d1cfc8;      /* बेहद हल्की और बारीक रेखा का रंग */
+            --icon-filter: invert(0);
         }
 
         [data-theme="dark"] {
@@ -30,7 +30,7 @@
             --nav-bg: #1e1e1e;
             --meta-bg: #1a1a1a;
             --border-color: #444444;
-            --icon-filter: invert(1);     /* डार्क मोड में आइकॉन्स अपने आप सफ़ेद हो जाएंगे */
+            --icon-filter: invert(1);
         }
 
         body {
@@ -45,59 +45,64 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-        /* हेडर सेक्शन - पट्टियों की दूरी बहुत कम की गई */
-        header { text-align: center; padding: 30px 0 15px 0; }
+        /* हेडर सेक्शन - दूरी को और कम किया गया */
+        header { text-align: center; padding: 25px 0 10px 0; }
         header h1 {
-            font-size: 58px; font-weight: 700; margin: 0 0 2px 0;
+            font-size: 56px; font-weight: 700; margin: 0 0 2px 0;
             color: var(--brand-color); letter-spacing: -0.5px;
         }
 
         header .tagline {
-            font-size: 16px; color: var(--text-color); font-weight: 400;
-            margin: 0 0 15px 0; font-style: italic; line-height: 1.5;
+            font-size: 15px; color: var(--text-color); font-weight: 400;
+            margin: 0 0 15px 0; font-style: italic; line-height: 1.5; opacity: 0.9;
         }
 
-        /* बारीक समानांतर रेखाएं और सोशल आइकॉन्स (Logos) */
-        .header-sep {
+        /* बेहद पतली पट्टी - जो केवल किनारों पर चीज़ें दिखाएगी */
+        .header-slim-bar {
             border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 8px 0;
-            display: flex; justify-content: center; align-items: center; gap: 20px;
-            font-size: 14px; margin-bottom: 10px;
+            padding: 6px 0;
+            display: flex;
+            justify-content: space-between; /* एक किनारे लोगो, दूसरे किनारे स्थान */
+            align-items: center;
+            font-size: 13px;
+            margin-bottom: 5px;
         }
         
+        .logos-wrapper { display: flex; gap: 15px; align-items: center; }
+
         /* सोशल मीडिया लोगो स्टाइल */
         .social-logo {
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
             display: inline-block;
             vertical-align: middle;
             filter: var(--icon-filter);
+            opacity: 0.8;
             transition: opacity 0.2s;
         }
-        .social-logo:hover { opacity: 0.7; }
+        .social-logo:hover { opacity: 1; }
         
-        .header-sep span { font-weight: 500; }
+        .location-text { font-weight: 500; opacity: 0.8; }
 
         /* मार्गनिर्देशन पट्टी (Navigation Menu) - ७ शुद्ध कड़ियाँ */
-        nav { background-color: var(--nav-bg); border-bottom: 1px solid var(--border-color); margin-bottom: 30px; }
+        nav { background-color: var(--nav-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); margin-bottom: 30px; }
         .nav-container {
             max-width: 1000px; margin: 0 auto;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 20px; height: 45px;
+            padding: 0 20px; height: 42px;
         }
-        .menu-links { display: flex; gap: 20px; }
+        .menu-links { display: flex; gap: 22px; }
         .menu-links a {
             color: var(--text-color); text-decoration: none;
-            font-size: 16px; font-weight: 600;
+            font-size: 15px; font-weight: 600;
         }
         .menu-links a:hover { color: var(--title-color); }
-        .theme-toggle-btn { background: none; border: none; color: var(--text-color); cursor: pointer; font-size: 18px; }
+        .theme-toggle-btn { background: none; border: none; color: var(--text-color); cursor: pointer; font-size: 16px; }
 
         /* आमुख पर आकर्षक बैनर जैसा ग्रिड व्यू लेआउट (Grid View) */
         .posts-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* २ कॉलम का संतुलित ग्रिड */
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px; margin-bottom: 40px;
         }
 
@@ -107,31 +112,29 @@
             border: 1px solid var(--border-color);
             padding: 20px; border-radius: 4px;
             display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.01);
         }
 
         .grid-post-title {
             font-size: 22px; font-weight: 700; line-height: 1.4;
-            color: var(--title-color); margin: 0 0 12px 0;
+            color: var(--title-color); margin: 0 0 10px 0;
         }
 
-        .grid-post-meta { font-size: 13px; color: var(--text-color); opacity: 0.8; margin-bottom: 15px; }
-
+        .grid-post-meta { font-size: 13px; color: var(--text-color); opacity: 0.7; margin-bottom: 12px; }
         .grid-post-excerpt { font-size: 16px; margin: 0 0 15px 0; text-align: justify; }
-
         .grid-post-link { color: var(--brand-color); text-decoration: none; font-weight: 600; font-size: 14px; }
 
         /* पादलेख (Footer) */
-        footer { border-top: 1px solid var(--border-color); padding: 30px 0; text-align: center; font-size: 14px; }
+        footer { border-top: 1px solid var(--border-color); padding: 25px 0; text-align: center; font-size: 13px; }
         .footer-line { display: flex; justify-content: center; gap: 15px; }
         footer a { color: var(--text-color); text-decoration: none; }
 
         /* मोबाइल के लिए फुल रिस्पांसिव सेटिंग्स */
         @media (max-width: 768px) {
-            .posts-grid { grid-template-columns: 1fr; } /* मोबाइल पर सिंगल बैनर व्यू */
-            header h1 { font-size: 40px; }
-            .menu-links { gap: 10px; flex-wrap: wrap; }
-            .menu-links a { font-size: 14px; }
+            .posts-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 38px; }
+            .menu-links { gap: 12px; flex-wrap: wrap; }
+            .menu-links a { font-size: 13px; }
         }
     </style>
 </head>
@@ -142,22 +145,21 @@
         <h1>आख्यान</h1>
         <div class="tagline">कुछ शब्दचित्र हैं यहाँ। विकास की अन्धी दौड़ में ये हाशिये की आख्यायें हैं और आख्यान भी!</div>
         
-        <!-- केवल लोगो (Logos) और स्थान पट्टी -->
-        <div class="header-sep">
-            <a href="#" target="_blank" title="Facebook">
-                <!-- फेसबुक का आधिकारिक साफ SVG लोगो -->
-                <svg class="social-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://w3.org">
-                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/>
-                </svg>
-            </a>
-            <a href="#" target="_blank" title="X (Twitter)">
-                <!-- एक्स / ट्विटर का आधिकारिक साफ SVG लोगो -->
-                <svg class="social-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://w3.org">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-            </a>
-            <span>|</span>
-            <span>प्रयागराज</span>
+        <!-- बहुत पतली पट्टी: एक किनारे लोगो, दूसरे किनारे स्थान -->
+        <div class="header-slim-bar">
+            <div class="logos-wrapper">
+                <a href="#" target="_blank" title="Facebook">
+                    <svg class="social-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://w3.org">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" title="X (Twitter)">
+                    <svg class="social-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://w3.org">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="location-text">प्रयागराज</div>
         </div>
     </header>
 
@@ -187,12 +189,12 @@
                     <div>
                         <h3 class="grid-post-title">डॉ. शिवशंकर मिश्र : जीवन-परिचय एवं साहित्यिक व्यक्तित्व</h3>
                         <div class="grid-post-meta">प्रस्तुति: आख्यान संपादन मंडल • प्रयागराज</div>
-                        <p class="grid-post-excerpt">यह 'आख्यान' का नया, संतुलित और आधुनिक स्वरूप है। देवनागरी अक्षरों की बनावट और उनके बीच के स्पेस को इस तरह व्यवस्थित किया गया है कि गंभीर विमर्श को पढ़ते समय आँखों को पूर्ण सहजता का अनुभव हो।</p>
+                        <p class="grid-post-excerpt">यह 'आख्यान' का नया, संतुलित और आधुनिक स्वरूप है। देवनागरी अक्षरों की बनावट और उनके बीच केスペース को इस तरह व्यवस्थित किया गया है कि गंभीर विमर्श को पढ़ते समय आँखों को पूर्ण सहजता का अनुभव हो।</p>
                     </div>
                     <a href="#" class="grid-post-link">आगे पढ़ें →</a>
                 </div>
 
-                <!-- दूसरी ग्रिड पोस्ट: एडसेंस फ्रेंडली प्लेसहोल्डर -->
+                <!-- दूसरी ग्रिड पोस्ट -->
                 <div class="grid-post">
                     <div>
                         <h3 class="grid-post-title">समकालीन गद्य विमर्श और हाशिये का समाज</h3>
